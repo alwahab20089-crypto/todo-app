@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaTrash, FaCheck, FaEdit } from "react-icons/fa";
 export default function TodoApp() {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
@@ -52,7 +52,7 @@ export default function TodoApp() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7FPM3q16VXlWsjAjOCmWWjgiAfC1tQcSjA&s?q=80&w=1200&auto=format&fit=crop"
+          src="https://media.canva.com/v2/image-resize/format:PNG/height:1040/quality:100/uri:ifs%3A%2F%2FM%2Fc8415c8c-9b65-4cc9-a8b2-79a03f1e1142/watermark:F/width:1392?csig=AAAAAAAAAAAAAAAAAAAAAEVrwUAv1Z04Tl14QOEmRKZp4OP49w4qdgVirBP-gm4S&exp=1778334987&osig=AAAAAAAAAAAAAAAAAAAAAJP9owFLySU_5eOeku_OpU5R4Z1dBZo1ENKXXPILz3Pb&signer=media-rpc&x-canva-quality=screen_3x?q=80&w=1200&auto=format&fit=crop"
           alt="background"
           className="w-full h-full object-cover opacity-30"
         />
@@ -88,7 +88,7 @@ export default function TodoApp() {
 
           <button
             onClick={addTodo}
-            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="items-start gap-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 text-white px-3 py-2 sm:px-4 rounded-2xl font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             Add
           </button>
@@ -112,7 +112,7 @@ export default function TodoApp() {
                 />
               ) : (
                 <span
-                  className={`font-medium break-words w-full pr-3 overflow-hidden transition-all duration-300 ${todo.completed
+                  className={`font-medium break-words whitespace-normal w-full pr-3 overflow-hidden transition-all duration-300 ${todo.completed
                     ? "line-through text-gray-400"
                     : "text-gray-800"
                     }`}
@@ -122,28 +122,36 @@ export default function TodoApp() {
               )}
               <button
                 onClick={() => editTodo(index)}
-                className="p-2 items-center rounded-xl bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white shadow-sm hover:shadow-lg transition-all duration-300"
+                className="px-3 py-2 sm:px-4 items-start gap-3 rounded-xl bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 <FaEdit size={14} />
               </button>
               <button
                 onClick={() => toggleComplete(index)}
-                className={`px-4 py-2 rounded-xl transition-all duration-300 shadow-sm
-  ${todo.complete
+                className={`px-3 py-2 sm:px-4 items-start gap-3 rounded-xl transition-all duration-300 shadow-sm
+  ${todo.completed
                     ? "bg-green-500 text-white"
                     : "bg-gray-200 hover:bg-green-500 hover:text-white"
                   }`}
               >
-                {todo.completed ? "Completed" : "Complete"}
-              </button>
+                <span className="hidden sm:inline">
+                  {todo.completed ? "Completed" : "Complete"}
+                </span>
+
+                <span className="sm:hidden">
+                  <FaCheck size={14} />
+                </span>              </button>
 
               <button
                 onClick={() => removeTodo(index)}
-                className="bg-red-100 text-red-500 px-4 py-2 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
+                className="bg-red-100 text-red-500 px-3 py-2 sm:px-4 items-start gap-3 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg"
 
               >
-                Delete
-              </button>
+                <span className="hidden sm:inline">Delete</span>
+
+                <span className="sm:hidden">
+                  <FaTrash size={14} />
+                </span>              </button>
 
             </li>
           ))}
