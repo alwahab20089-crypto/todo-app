@@ -52,9 +52,9 @@ export default function TodoApp() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://media.canva.com/v2/image-resize/format:PNG/height:1040/quality:100/uri:ifs%3A%2F%2FM%2Fc8415c8c-9b65-4cc9-a8b2-79a03f1e1142/watermark:F/width:1392?csig=AAAAAAAAAAAAAAAAAAAAAEVrwUAv1Z04Tl14QOEmRKZp4OP49w4qdgVirBP-gm4S&exp=1778334987&osig=AAAAAAAAAAAAAAAAAAAAAJP9owFLySU_5eOeku_OpU5R4Z1dBZo1ENKXXPILz3Pb&signer=media-rpc&x-canva-quality=screen_3x?q=80&w=1200&auto=format&fit=crop"
+          src="./bg.jpg?q=80&w=1200&auto=format&fit=crop"
           alt="background"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-80"
         />
       </div>
 
